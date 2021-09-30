@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: crimson;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid" style="background-color: rgb(156, 104, 240);">
+      <a class="navbar-brand" href="index.html">Calculator</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-2 mb-lg-0 ms-auto">
+          <li class="nav-item mx-3">
+            <a class="nav-link " aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">about</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav><br><br><br><br>
+  <center>
+    <form method="post"  style="color: rgba(82, 194, 228, 0.966); background-color: rgb(211, 243, 70);width: 90%;height: 80%;">
+      <Fieldset style="width: 50%;">
+          <legend style="display: center;color:rgb(245, 76, 20)"> ELECTRIC BILL CALCULATION</legend>
+    <table>
+     <tr>
+       <th><label for="tariff">TARIFF CHECK :</label></th>
+       <th><select name="tariff" id="tariff" style="width: 180px;">
+                 <option value="None">--- Select a traiff ---</option>
+                 <option value="Domestic">Domestic</option>
+          </select></th>
+     </tr>
+     <tr>
+       <th><label for="unit1"> NO.OF UNITS CONSUMED : </label></th>
+       <th><input type="number" name="unit1" id="unit1"> </th>
+     </tr>
+     <tr>
+      <th  style="text-align: center;" colspan="2"><input type="button" style='color:rgb(52, 13, 226);width:120px;background-color:rgb(247, 204, 89);' id="btu" value=" CALCULATE " onclick="eleValue()"></th>
+      </tr>
+     <tr>
+       <th style="color: rgb(39, 255, 20);">Consumed Unit : </th>
+       <th style="text-align: center;"><p style="background-color:whitesmoke;" id="con"></p></th>
+      </tr>
+     <tr>
+       <th style="color:rgb(138, 6, 6) ;">Electric Bill : </th>
+       <th style="text-align: center;"><p id="demo" style="background-color: whitesmoke;"></p></th>
+      </tr>
+     </table>
+   </form>
+  </Fieldset>
+  </center>
+   <script LANGUAGE="JavaScript">
+     function eleValue()
+     {
+       document.getElementById("con").innerHTML = "";
+       document.getElementById("demo").innerHTML = "";
+       var unit=document.getElementById('unit1').value;
+       var c=document.getElementById('tariff').value;
+       alert("your input = "+ unit +" && You had choosen : "+c+" tariff");
+       if(c == "Domestic")
+       {
+          
+           if (unit>0 && unit<=100)
+				   {
+                 var x0 = 0.0;
+                 document.getElementById("con").innerHTML = ""+unit;
+                 document.getElementById("demo").innerHTML = ""+x0;
+			    	}
+			  	if (unit>=101 && unit<=200)
+			  	{
+                var x3 = unit*1;
+			        	var x1 =  (unit-100)*1.5;
+                var x12=x1+250;
+                var x6 = 50;
+                var x7 = x12-x6;
+				        var x4 = 30;			
+                var x8 = 10;
+			        	var x2 = 250;
+				        var x0 = Math.ceil(x1+x4-x8);
+                var x11=Math.abs(x0);
+                document.getElementById("con").innerHTML = ""+unit;
+                document.getElementById("demo").innerHTML = ""+x11;
+			   	}
+											
+				if (unit>=201 && unit<=500)
+				{
+                var x3 = unit*1;
+				        var x1 = (unit-200)*3 + 500;
+                var x6 = 50;
+                var x7 = x1-x6;
+				        var x4 = 30;			
+                var x8 = 0;
+				        var x2 = 250 ;
+				        var x0 = Math.ceil(x1+x4-x2-x6-x8);
+                document.getElementById("con").innerHTML = ""+unit;
+                document.getElementById("demo").innerHTML = ""+x0;
+				}
+												
+				if (unit>500)
+				{
+				        var x3 = unit*1;
+				        var x1 = (unit-500)*6.6+1730+250;
+                var x6 = 0;
+                var x7 = x1-x6;
+				        var x4 = 50;			
+                var x8 = 0;
+				        var x2 = 250 ;
+				        var x0 = Math.ceil(x1+x4-x2-x6-x8);
+                document.getElementById("con").innerHTML = ""+unit;
+                document.getElementById("demo").innerHTML = ""+x0;
+				 } 
+      }
+       else if(c == "Commertial")
+       {
+         var load = document.getElementById('load').value;
+          if (unit>0 && unit<=100)
+				  {
+                var x3 = unit*1;
+				        var x1 = unit*5;
+                var x6 = 0;
+                var x7 = x1-x6;
+				        var x4 = load*140;			
+                var x8 = 0;
+				        var x2 = (x1*0.05);
+				        var x0 =Math.ceil(x1+x4+x2);
+                document.getElementById("con").innerHTML = ""+unit;
+                document.getElementById("demo").innerHTML = ""+x0;	
+				  }
+				  if (unit>=101)
+				  {
+              var x3 = unit*1;var x5 = unit*0.1;
+				      var x1 = unit*8.05;
+              var x6 = 0;
+              var x7 = x1-x6;
+				      var x4 = load*140;			
+              var x8 = 0;
+				      var x2 = (x1*0.05);
+				      var x0 = Math.ceil(x1+x4+x2);
+              document.getElementById("con").innerHTML = ""+unit;
+              document.getElementById("demo").innerHTML = ""+x0;
+				  }
+       }
+    }
+   </script>
+   <br><br><br><br><br><br><br><br><br>
+  <footer>
+    <div class="container-fluid" id="foot">
+      <div class="row">
+        <div class="col-md-12" style="margin-bottom: 20px; margin-top: 20px;">
+          <p>Done by - Mothis B 19ITR048</p>
+          <a href="#">Contact</a>
+          <a href="#">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>  
+</body>
+</html>
